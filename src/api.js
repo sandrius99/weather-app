@@ -1,6 +1,10 @@
 async function getCityLocation(city) {
     try{
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=9d2d84cc33855d85419772dd76edbce6`)
+        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=9d2d84cc33855d85419772dd76edbce6`,
+        {
+            mode: 'cors',
+          }
+        );
         const cityLocationData = await response.json();
      
        return { "latitude": cityLocationData[0].lat, "longitude": cityLocationData[0].lon };
